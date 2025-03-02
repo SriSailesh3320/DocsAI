@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Document Processing System
 
-## Getting Started
+## Overview
+This project is a robust document processing system that extracts, classifies, analyzes, and manages documents using advanced AI and cloud-based solutions. It offers intelligent document retrieval, semantic search, and a user-friendly web interface.
 
-First, run the development server:
+## Technical Implementation
 
-```bash
+### 1. Text Extraction
+We use:
+- **AWS Textract** for high-efficiency OCR and handwriting recognition.
+- **Python-based Tesseract and SpaCy** as alternatives for text extraction.
+
+### 2. Document Classification
+We employ a multi-layered approach:
+- **Keyword-based classification** using SpaCy.
+- **RoBERTa** trained on domain-specific datasets for deep classification.
+- **Qwen** for AI-powered analysis and categorization.
+
+### 3. Advanced AI Processing
+- **OCR & Subcategory Detection** – Extracting structured data from documents.
+- **Query Generation** – Identifying frequently asked questions from document content.
+- **Key Detail Extraction & User Queries** – Summarizing critical information and answering user questions.
+- **Sentiment Analysis** – Understanding document tone using Qwen.
+
+### 4. Document Storage & Management
+- **Bulk classification and storage** in Amazon S3 based on category.
+- **User-entered document details** are stored relationally in MongoDB.
+- **Structured history tracking** ensures document accessibility.
+
+### 5. Authentication & Web Application
+- **Authentication**: Secure login using NextAuth and Google Authentication.
+- **User-Friendly UI**: A modern Next.js, React, Tailwind, and ShadCN/UI application for a seamless user experience.
+
+### 6. Semantic Analysis & Document Linking
+- **SBERT embeddings and SpaCy text analysis** to establish relationships between documents.
+- **Intelligent document linking and retrieval** based on contextual similarity.
+
+## Installation
+
+### Prerequisites
+- **Node.js** (Latest LTS version recommended)
+- **Python 3.8+** (For SpaCy and OCR processing)
+- **AWS Credentials** (For Textract and S3 storage)
+- **MongoDB Database** (For user data storage)
+- **SQLite** (For storing Qwen embeddings locally)
+
+### Steps to Install
+```sh
+# Clone the repository
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env  # Update the .env file with your configurations
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
