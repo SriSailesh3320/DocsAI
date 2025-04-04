@@ -34,6 +34,7 @@ We employ a multi-layered approach:
 ### 6. Semantic Analysis & Document Linking
 - **SBERT embeddings and SpaCy text analysis** to establish relationships between documents.
 - **Intelligent document linking and retrieval** based on contextual similarity.
+- ### A basci model design is given in ```/Model_Classification``` folder [Do refer it].
 
 ## Installation
 
