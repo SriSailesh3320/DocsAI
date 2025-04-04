@@ -36,3 +36,17 @@ pip install PyPDF2 spacy faiss-cpu numpy sentence-transformers matplotlib scikit
 # Download required spaCy models
 python -m spacy download en_core_web_md
 python -m spacy download en_core_web_sm
+```
+
+### Why this model?
+
+We use `all-MiniLM-L6-v2`, a sentence embedding model from the SentenceTransformers library. It is a distilled version of BERT (MiniLM) that efficiently captures deep semantic relationships between texts.
+
+Unlike traditional methods like TF-IDF, this model understands context — for example, distinguishing between "bank" as a financial institution vs. "bank" of a river. It converts documents into dense vector embeddings, which are then used for semantic classification and similarity search.
+
+This model was chosen because:
+
+- It provides high-quality embeddings for semantic understanding.
+- It is lightweight and fast, making it suitable for real-time tasks.
+- It works seamlessly with FAISS for efficient similarity-based indexing and retrieval.
+
